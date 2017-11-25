@@ -1,0 +1,18 @@
+{
+  "name": "require-params",
+  "version": "1.0.0",
+  "description": "require some parameters the easiest way",
+  "main": "require-params.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "params",
+    "post",
+    "node",
+    "missed",
+    "utility"
+  ],
+  "author": "Osama Soliman",
+  "license": "MIT"
+}
