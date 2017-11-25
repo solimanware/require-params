@@ -27,7 +27,7 @@ function requireParams ({req,res}, requiredParamsArray, defualtResponse) {
                 : " parameter > NOT FOUND"
             let error = missedParams.join() + msg
             res.send({error})
-            return false
+            return new Error(error)
         }
     }
     //or use custom one?? here's the array of missedParams
