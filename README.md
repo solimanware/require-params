@@ -1,6 +1,5 @@
 # require-params 
 [![npm version](https://badge.fury.io/js/require-params.svg)](https://badge.fury.io/js/require-params)
-[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/Microsmsm/require-params)
 [![GitHub issues](https://img.shields.io/github/issues/Microsmsm/require-params.svg)](https://github.com/Microsmsm/require-params/issues)
 
 Fast, minimalist middleware for express.
@@ -41,6 +40,9 @@ app.post('/api/isSadPost', (req, res) => {
     //code happens here only when required params are provided
 })
 ```
+
+:+1: Tweet [![Twitter](https://img.shields.io/twitter/url/https/www.npmjs.com/package/require-params.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Frequire-params)
+
 
 This is on [GitHub](https://github.com/Microsmsm/require-params) your contributions are very welcomed.
 [![star this repo](http://githubbadges.com/star.svg?user=Microsmsm&repo=require-params&style=flat)](https://github.com/Microsmsm/require-params)
