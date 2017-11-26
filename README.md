@@ -1,11 +1,14 @@
 # require-params 
+[![npm version](https://badge.fury.io/js/require-params.svg)](https://badge.fury.io/js/require-params)
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/Microsmsm/require-params)
+[![GitHub issues](https://img.shields.io/github/issues/Microsmsm/require-params.svg)](https://github.com/Microsmsm/require-params/issues)
 
 Fast, minimalist middleware for express.
 
 
 useful features:
 
- * require basic params
+ * require important params
  * auto send message with missing params
  * return missing params array 
 
@@ -40,6 +43,7 @@ app.post('/api/isSadPost', (req, res) => {
 ```
 
 This is on [GitHub](https://github.com/Microsmsm/require-params) your contributions are very welcomed.
+[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)]()
 
 
 
