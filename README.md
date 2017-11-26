@@ -43,7 +43,7 @@ app.post('/api/isSadPost', (req, res) => {
 ```
 
 This is on [GitHub](https://github.com/Microsmsm/require-params) your contributions are very welcomed.
-[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)]()
-
+[![star this repo](http://githubbadges.com/star.svg?user=Microsmsm&repo=require-params&style=flat)](https://github.com/Microsmsm/require-params)
+[![fork this repo](http://githubbadges.com/fork.svg?user=Microsmsm&repo=require-params&style=flat)](https://github.com/Microsmsm/require-params/fork)
 
 
