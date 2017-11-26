@@ -41,7 +41,7 @@ app.post('/api/isSadPost', (req, res) => {
 })
 ```
 
-:+1: Tweet [![Twitter](https://img.shields.io/twitter/url/https/www.npmjs.com/package/require-params.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Frequire-params)
+Like it :+1: ... Tweet it [![Twitter](https://img.shields.io/twitter/url/https/www.npmjs.com/package/require-params.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Frequire-params)
 
 
 This is on [GitHub](https://github.com/Microsmsm/require-params) your contributions are very welcomed.
