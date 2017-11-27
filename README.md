@@ -16,17 +16,20 @@ Install:
 npm i require-params
 ```
 
+
+Arguments Explaining:
+
+```javascript
+requireParams(PATH:String,RequiredParmeters:String[],ForceRequireParams?:Boolean)
+```
+
 And here's basic example:
 
 ```javascript
 app.use(requireParams('/api/endpoint',['text'],true))
 ```
 
-Explaining:
 
-```javascript
-app.use(requireParams(PATH:String,RequiredParmeters:String[],ForceRequireParams?:Boolean))
-```
 
 
 
@@ -42,8 +45,8 @@ const requireParams = require('require-params');
 
 app.use(requireParams('/api/endpoint',['text'],true))
 
-app.post('/api/isSadPost', (req, res) => {
-    //code happens here only when required params are provided
+app.post('/api/endpoint', (req, res) => {
+    //code happens here only when required params are provided when force require is enabled
 })
 ```
 
