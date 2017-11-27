@@ -7,7 +7,7 @@ module.exports = function (path, requiredParamsArray, forceRequireParams) {
         return new Error('you must be using array for the second argument')
     }
     //make sure it's not empty array
-    if (requiredParamsArray < 1) {
+    if (requiredParamsArray.length < 1) {
         return new Error('not found Required parameters')
     }
     //it's array?...double check its items
@@ -79,7 +79,7 @@ function getMissingPrams(reqParams, requiredParamsArray) {
         return new Error('send reqParamsect for the first argument')
     if (!(requiredParamsArray instanceof Array)) 
         return new Error('you must be using array for the second argument')
-    if (requiredParamsArray < 1) 
+    if (requiredParamsArray.length < 1) 
         return new Error('not found Required parameters')
 
         //Assigning body keys to array optimizing performance
