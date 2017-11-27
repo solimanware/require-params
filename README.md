@@ -16,10 +16,16 @@ Install:
 npm i require-params
 ```
 
-And here's basic usage code:
+And here's basic example:
 
 ```javascript
-app.use(requireParams('/api/isSadPost',['text'],true))
+app.use(requireParams('/api/endpoint',['text'],true))
+```
+
+Explaining:
+
+```javascript
+app.use(requireParams(PATH:String,RequiredParmeters:String[],ForceRequireParams?:Boolean))
 ```
 
 
@@ -34,7 +40,7 @@ app.use(express.json())
 
 const requireParams = require('require-params');
 
-app.use(requireParams('/api/isSadPost',['text'],true))
+app.use(requireParams('/api/endpoint',['text'],true))
 
 app.post('/api/isSadPost', (req, res) => {
     //code happens here only when required params are provided
