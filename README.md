@@ -15,6 +15,9 @@ Install:
 ```
 npm i require-params
 ```
+```javascript
+const requireParams = require('require-params')
+```
 
 
 Arguments Explaining:
@@ -23,7 +26,8 @@ Arguments Explaining:
 requireParams(PATH:String,RequiredParmeters:String[],ForceRequireParams?:Boolean)
 ```
 
-And here's basic example:
+Usage basic example:
+
 
 ```javascript
 app.use(requireParams('/api/endpoint',['text'],true))
