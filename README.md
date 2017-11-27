@@ -16,6 +16,8 @@ Install:
 npm i require-params
 ```
 
+Use:
+
 ```javascript
 app.use(requireParams('/api/endpoint',['text'],true))
 ```

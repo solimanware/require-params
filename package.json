@@ -1,6 +1,6 @@
 {
   "name": "require-params",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "require some parameters the easiest way",
   "main": "require-params.js",
   "scripts": {
