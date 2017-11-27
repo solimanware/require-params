@@ -15,10 +15,10 @@ Install:
 ```
 npm i require-params
 ```
-```javascript
-const requireParams = require('require-params')
-```
 
+```javascript
+app.use(requireParams('/api/endpoint',['text'],true))
+```
 
 Arguments Explaining:
 
@@ -29,9 +29,7 @@ requireParams(PATH:String,RequiredParmeters:String[],ForceRequireParams?:Boolean
 Usage basic example:
 
 
-```javascript
-app.use(requireParams('/api/endpoint',['text'],true))
-```
+
 
 
 
