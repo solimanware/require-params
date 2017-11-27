@@ -76,9 +76,9 @@ module.exports = function (path, requiredParamsArray, forceRequireParams) {
 function getMissingPrams(reqParams, requiredParamsArray) {
     //handling errors
     if (!reqParams) 
-        return new Error('send reqParamsect for the first argument')
+        return new Error('send reqParams Object for the first argument')
     if (!(requiredParamsArray instanceof Array)) 
-        return new Error('you must be using array for the second argument')
+        return new Error('you must be using "array" for the second argument')
     if (requiredParamsArray.length < 1) 
         return new Error('not found Required parameters')
 
