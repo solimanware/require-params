@@ -4,26 +4,20 @@ module.exports = function (path, requiredParamsArray, forceRequireParams) {
     /* Handling Possible Errors */
 
     //make sure it's array
-    if (!(requiredParamsArray instanceof Array)) {
-        return new Error('you must be using array as the second argument')
-    }
+    if (!(requiredParamsArray instanceof Array)) return new Error('you must be using array as the second argument')
+
     //make sure it's not empty array
-    if (!requiredParamsArray.length) {
-        return new Error('not found Required parameters > Array is empty')
-    }
+    if (!requiredParamsArray.length) return new Error('not found Required parameters > Array is empty')
+    
     // double check its items: regex link >
     // https://stackoverflow.com/a/7713498/4591364
     const oneWordRegEx = new RegExp("^[A-Za-z]+$");
     //loop the array items
     requiredParamsArray.forEach((param) => {
         //make sure it's string
-        if (typeof param !== 'string') {
-            return new Error('check if all your required params are array of strings > ["param1","param2"]')
-        }
-        if (!oneWordRegEx.test(param)) {
-            return new Error('check if all your params are named correctly > one worded')
-        }
-
+        if (typeof param !== 'string') return new Error('check if all your required params are array of strings > ["param1","param2"]')
+        //make sue it's poper param 
+        if (!oneWordRegEx.test(param)) return new Error('check if all your params are named correctly > one worded')
     })
 
     //Express Docs: https://expressjs.com/en/guide/writing-middleware.html
