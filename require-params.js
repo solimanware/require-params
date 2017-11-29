@@ -1,91 +1,53 @@
+const getMissingParams = require('./get-missing')
 //Express Docs: https://expressjs.com/en/guide/writing-middleware.html
 module.exports = function (path, requiredParamsArray, forceRequireParams) {
-    /* handling errors */
+    /* Handling Possible Errors */
 
     //make sure it's array
     if (!(requiredParamsArray instanceof Array)) {
-        return new Error('you must be using array for the second argument')
+        return new Error('you must be using array as the second argument')
     }
     //make sure it's not empty array
-    if (requiredParamsArray.length < 1) {
-        return new Error('not found Required parameters')
+    if (!requiredParamsArray.length) {
+        return new Error('not found Required parameters > Array is empty')
     }
-    //it's array?...double check its items
-    if(requiredParamsArray instanceof Array){
-        //https://stackoverflow.com/questions/7713434/regular-expression-single-word
-        const oneWordRegEx = new RegExp("^[A-Za-z]+$");
-        //loop the array items
-        requiredParamsArray.forEach((param)=>{
-            //make sure it's string
-            if(typeof param !== 'string'){
-                return new Error('check if all your required params are array of strings > ["param1","param2"]')
-             }
-             //make sure it's proper one word paramerter name
-             if(typeof param === 'string'){
-                if(oneWordRegEx.test(param)){
-                    return new Error('check if all your params are named correctly')
-                }
-             }
-
-        })
-    }
-    //Express Docs: https://expressjs.com/en/guide/writing-middleware.html
-    return function (req, res, next) {
-        /* handling errors */
-        //make sure it's object of request parameters
-        if(typeof req !== "object") return new Error('are you sure you sending the request "object"?')
-
-    
-        //extract params from the request body
-        const reqParams = req.body
-        
-        //specific path for the middleware
-        if (req.path === path) {
-            //figure the missing required parameters
-            const missingRequiredParams = getMissingPrams(reqParams, requiredParamsArray);
-            //is there missing parameters?
-            if (missingRequiredParams.length > 0) {
-                //more than one parameter missing? ...propper display message
-                let msg = missingRequiredParams.length > 1
-                    ? " parameters > NOT FOUND"
-                    : " parameter > NOT FOUND"
-                let error = missingRequiredParams.join() + msg
-                if (forceRequireParams) {
-                    res
-                        .status(400)
-                        .send(error);
-                } else {
-                    req.missingParams = missingRequiredParams;
-                    next();
-                }
-            } else {
-                next();
-            }
-        } else {
-            next();
+    // double check its items: regex link >
+    // https://stackoverflow.com/a/7713498/4591364
+    const oneWordRegEx = new RegExp("^[A-Za-z]+$");
+    //loop the array items
+    requiredParamsArray.forEach((param) => {
+        //make sure it's string
+        if (typeof param !== 'string') {
+            return new Error('check if all your required params are array of strings > ["param1","param2"]')
         }
-    }
-}
-/**
- * function to detect missing paramerters
- *
- * @param  {Request:Request} reqParams - contains Request and Response
- * @param  {String[]} requiredParamsArray - array of required params during code excution
- * @returns {String[]} - sending array of missed required parameters array to handle them within the code
- */
-function getMissingPrams(reqParams, requiredParamsArray) {
-    //handling errors
-    if (!reqParams) 
-        return new Error('send reqParams Object for the first argument')
-    if (!(requiredParamsArray instanceof Array)) 
-        return new Error('you must be using "array" for the second argument')
-    if (requiredParamsArray.length < 1) 
-        return new Error('not found Required parameters')
+        if (!oneWordRegEx.test(param)) {
+            return new Error('check if all your params are named correctly > one worded')
+        }
 
-        //Assigning body keys to array optimizing performance
-    const reqParamsArray = Object.keys(reqParams);
-    //extracting the missing paramerters
-    const missedParams = requiredParamsArray.filter(param => !reqParamsArray.includes(param))
-    //here's the array of missedParams
-    return missedParams;
+    })
 }
+//Express Docs: https://expressjs.com/en/guide/writing-middleware.html
+return function (req, res, next) {
+    /* Handling Possible Errors */
+    //make sure it's object of request parameters
+    if (!req.body) return new Error('are you sure you sending the request "object" containg body?')
+    //extract params from the request body
+    const reqParams = req.body
+    //make sure it's the specific path for the middleware. No?... Skip... Next...
+    if (req.path !== path) return next();
+    //figure the missing required parameters
+    const missingRequiredParams = getMissingParams(reqParams, requiredParamsArray);
+    //is there missing parameters?... No? Skip... Next...
+    if (!missingRequiredParams.length) return next();
+    //More than one parameter missing? ...propper display message
+    let msg = missingRequiredParams.length > 1 ?
+        " parameters > NOT FOUND" :
+        " parameter > NOT FOUND"
+    let error = missingRequiredParams.join() + msg
+    //you are force require params? code reached here? there must be missing params > send {error}
+    if (forceRequireParams) return res.status(400).send(error);
+    //not forcing required params? I will send you them with req body you can handle them by yourself
+    req.missingParams = missingRequiredParams;
+    next();
+}
+
