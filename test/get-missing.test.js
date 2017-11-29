@@ -1,4 +1,4 @@
-const getMissingParams = require('./get-missing')
+const getMissingParams = require('../get-missing')
 
 it('should return missing',()=>
     expect(getMissingParams({text:'hello'},['text','phone']))
