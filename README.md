@@ -2,42 +2,34 @@
 [![npm version](https://badge.fury.io/js/require-params.svg)](https://badge.fury.io/js/require-params)
 [![GitHub issues](https://img.shields.io/github/issues/Microsmsm/require-params.svg)](https://github.com/Microsmsm/require-params/issues)
 
-Fast, minimalist middleware for express.
+Fast, minimalist middleware for express making your life easier.
 
 
-useful features:
+## Features:
 
- * require important params
- * auto send message with missing params
- * return missing params array 
+ * Requires important params the easy way
+ * Choose to force require params
+ * Or return missing params array with the requst object for you to handle 
 
-Install:
+## Installation:
 ```
 npm i require-params
 ```
 
-Use:
+## Usage:
 
 ```javascript
 app.use(requireParams('/api/endpoint',['text'],true))
 ```
 
-Arguments Explaining:
+## Arguments Explaining:
 
 ```javascript
 requireParams(PATH:String,RequiredParmeters:String[],ForceRequireParams?:Boolean)
 ```
 
-Usage basic example:
+## Full code example:
 
-
-
-
-
-
-
-
-Full code example
 ```javascript
 const express = require('express')
 const app = express()
@@ -54,7 +46,7 @@ app.post('/api/endpoint', (req, res) => {
 })
 ```
 
-Like it :+1: ... Tweet it [![Twitter](https://img.shields.io/twitter/url/https/www.npmjs.com/package/require-params.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Frequire-params)
+Like it :+1:? ... Tweet it [![Twitter](https://img.shields.io/twitter/url/https/www.npmjs.com/package/require-params.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Frequire-params)
 
 
 This is on [GitHub](https://github.com/Microsmsm/require-params) your contributions are very welcomed.
