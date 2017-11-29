@@ -1,8 +1,8 @@
 {
   "name": "require-params",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "require some parameters the easiest way",
-  "main": "require-params.js",
+  "main": "lib/require-params.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
